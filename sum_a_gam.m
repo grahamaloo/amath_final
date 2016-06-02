@@ -1,3 +1,4 @@
+% sums all 'a' connectivity modes except the current mode in consideration
 function [res] = sum_a_gam(curr_mode, W21, b_alph)
     [m, n] = size(W21);
     res = zeros(m, 1);

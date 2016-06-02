@@ -28,7 +28,7 @@ Db_els = diag(rand(N1, 1));
 Db(1:N1, 1:N1) = Db_els; %trivial in this case since N1 = N2
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%constructing for easy  case (a^alph and b^alph prop 2 r^alph
+%%constructing for easy  case (a^alph and b^alph prop 2 r^alph)
 W32 = U * Da * R';
 W21 = R * diag(rand(N1, 1)) * V';
 %%%%%%%%%%%%%%%%%
@@ -56,7 +56,7 @@ for mode = modes
     figure;
     Y0 = zeros(N2 * 2,1); %store them in one big vector, the a's and b's are
                           %handled differently in the 'mainSystem' function
-    Y0(1:N2) = W21(:, mode);
+    Y0(1:N2) = W21(:, mode); %select only for the mode we're considering
     Y0(N2+1:end) = W32c(mode, :)';
     [tcurr, ycurr] = ode45(@(t,y) (mainSystem(y, mode, lambda, s_alphas, N2)), t1, Y0);
     plot(tcurr, ycurr(:,1:N2), 'b'); % a's

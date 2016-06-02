@@ -1,3 +1,6 @@
+% returns some random initializations for main system
+% based on torch / lua code found at https://github.com/iassael/torch-linearo
+% and "translated" to matlab
 function [obj] = linUnit(inputSize, outputSize)
     initScale = sqrt(2);
     
